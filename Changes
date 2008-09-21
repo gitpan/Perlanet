@@ -1,0 +1,151 @@
+2008-09-21  dave
+
+	* [r45] Build.PL:
+	  Bumped version for new release.
+	* [r44] MANIFEST:
+	  Added README and Changes to MANIFEST
+	* [r43] README.xml:
+	  Added README.xml
+
+2008-09-20  dave
+
+	* [r41] Build.PL:
+	  Bumped version number.
+	* [r40] bin/perlanet:
+	  Added a lot of documentation
+	* [r39] lib/Perlanet.pm:
+	  Improved documentation.
+
+2008-09-19  dave
+
+	* [r38] Build.PL, MANIFEST:
+	  Bump version number (by 2).
+	  Added MANIFEST.
+	* [r37] t/01_basic.t, t/testrc:
+	  Added a testrc and made t/01_basic.t look in the right place for
+	  it.
+	* [r35] examples/index.tt, examples/perlanetrc, index.tt,
+	  perlanetrc:
+	  Moved some files around
+	* [r34] examples, examples/index.tt, examples/perlanetrc:
+	  Added examples directory
+	* [r33] lib/Perlanet.pm:
+	  Added pod for the methods.
+	* [r32] t, t/01_basic.t, t/pod.t, t/pod_coverage.t:
+	  Added (basic) tests
+	* [r31] Build.PL, Makefile.PL:
+	  Switch from Makefile.PL to Build.PL
+	* [r30] bin, bin/perlanet, lib, lib/Perlanet.pm, perlanet:
+	  First cut at separating most of the code out into a module
+	* [r29] perlanet:
+	  Applying patches suggested by Alex Kapranoff.
+	  I think we're getting closer - but it's still not quite there.
+	* [r28] Makefile.PL, index.tt, perlanet:
+	  Applied patch from Stephen Steneker.
+	  * Added Makefile.PL
+	  * Added Pod and tweaked perlanet
+	  * Added explicit charset meta element to HTML template
+	* [r27] perlanetrc:
+	  Some changes to sample perlnetrc (now taken from planet skeptic)
+
+2008-09-17  dave
+
+	* [r26] perlanet:
+	  Remove unfinished 'decode' function.
+	* [r25] perlanet:
+	  Remove decode call
+	* [r24] perlanet:
+	  Add "use open" line to specify encoding.
+
+2008-09-01  dave
+
+	* [r23] perlanetrc:
+	  Changed author section of sample config file to reflect latest
+	  version.
+	* [r22] perlanet:
+	  Huge bodge to work around XML::Feed's shortcomings and set the
+	  author element correctly.
+	* [r21] perlanet:
+	  Decode the data as it comes into the program
+	* [r20] perlanet:
+	  Remove id attributes from spans as they are very unlikely to
+	  remain unique
+
+2008-08-29  dave
+
+	* [r19] perlanet:
+	  Add the ability to generate OPML files.
+	* [r18] perlanet:
+	  Make previous fix into a global replacement
+	* [r17] perlanet:
+	  Nasty hack (which really don't like) to get round blogspot
+	  problem.
+	* [r16] perlanet:
+	  Reverse order of HTML::Scrub and HTML::Tidy (scrub before tidy
+	  now) as
+	  HTML::Scrub seems to undo some of HTML::Tidy's good work.
+	  Possibly because
+	  the output I'm generating from HTML::Tidy is XHTML, not HTML.
+
+2008-07-23  dave
+
+	* [r15] perlanet:
+	  Pass $cfg to tt to enable increased cleverness in templates.
+	* [r14] perlanet:
+	  Tweaks to allow style attributes in HTML.
+
+2008-07-22  dave
+
+	* [r13] perlanet:
+	  Allow align tags on images.
+
+2008-04-06  dave
+
+	* [r12] perlanet:
+	  Only show entries that are dated less than a week in the future.
+
+2008-03-25  dave
+
+	* [r11] perlanet:
+	  Corrected check for content type
+	* [r10] perlanet:
+	  Process template in utf8 mode
+
+2008-03-24  dave
+
+	* [r9] perlanet:
+	  Added HTML::Scrubber support.
+	  Use 'min' rather than 'max' number of entries (d'oh!)
+	* [r8] perlanet:
+	  Don't try to output more entries than you have.
+
+2008-03-22  dave
+
+	* [r7] perlanet:
+	  HTML::Tidy support now works correctly.
+	* [r6] perlanet:
+	  Added support for HTML::Tidy
+
+2008-03-17  dave
+
+	* [r5] index.tt:
+	  Better HTML output.
+	* [r4] perlanet:
+	  Better error checking.
+
+2008-03-11  dave
+
+	* [r3] perlanet:
+	  Ignore any feeds we can't retrieve
+
+2008-03-10  dave
+
+	* [r2] perlanet:
+	  Deal with feeds with crappy dates.
+	  Actually output the feed in the required format.
+
+2008-03-09  dave
+
+	* [r1] ., index.tt, perlanet, perlanetrc:
+	  Initial import
+
