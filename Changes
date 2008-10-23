@@ -1,3 +1,17 @@
+2008-10-23  dave
+
+	* [r51] Build.PL:
+	  Bump version number for release
+	* [r50] lib/Perlanet.pm:
+	  Fixes to make use of the code fixes in the recent releases of
+	  XML::Feed. This, in turn, means that we are now generating valid
+	  Atom feeds. Rah!
+
+2008-09-29  dave
+
+	* [r48] Build.PL:
+	  Bumped version number for release 0.07
+
 2008-09-28  kappa
 
 	* [r47] lib/Perlanet.pm:
