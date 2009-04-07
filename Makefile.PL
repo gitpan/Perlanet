@@ -11,11 +11,11 @@ WriteMakefile
                            'Encode' => 0,
                            'HTML::Scrubber' => 0,
                            'HTML::Tidy' => 0,
-                           'LWP::Simple' => 0,
+                           'LWP::UserAgent' => 0,
                            'List::Util' => 0,
                            'Template' => 0,
                            'Test::More' => 0,
-                           'XML::Feed' => 0,
+                           'XML::Feed' => '0.22',
                            'XML::OPML::SimpleGen' => 0,
                            'YAML' => 0
                          },
