@@ -18,7 +18,7 @@ require XML::OPML::SimpleGen;
 
 use vars qw{$VERSION};
 BEGIN {
-  $VERSION = '0.09';
+  $VERSION = '0.10';
 }
 
 =head1 NAME
@@ -66,7 +66,18 @@ sub new {
 
   my $cfg = LoadFile($cfg_file);
 
-  return bless { cfg => $cfg }, $class;
+  my $ua = LWP::UserAgent->new;
+  $ua->agent($cfg->{agent} || "Perlanet/$VERSION");
+
+  my $opml;
+  if ($cfg->{opml}) {
+    $opml = XML::OPML::SimpleGen->new;
+    $opml->head(
+      title => $cfg->{title},
+    );
+  }
+
+  return bless { cfg => $cfg, ua => $ua, opml => $opml }, $class;
 }
 
 =head2 run
@@ -80,19 +91,8 @@ sub run {
 
   my @entries;
 
-  my $opml;
-  if ($self->{cfg}{opml}) {
-    $opml = XML::OPML::SimpleGen->new;
-    $opml->head(
-      title => $self->{cfg}{title},
-    );
-  }
-
-  my $ua = LWP::UserAgent->new;
-  $ua->agent($self->{cfg}{agent} || "Perlanet/$VERSION");
-
   foreach my $f (@{$self->{cfg}{feeds}}) {
-    my $response = $ua->get($f->{url});
+    my $response = $self->{ua}->get($f->{url});
 
     if ($response->is_error) {
       warn "$f->{url}:\n" . $response->status_line;
@@ -124,8 +124,8 @@ sub run {
     push @entries, map { $_->title($f->{title} . ': ' . $_->title); $_ }
                          $feed->entries;
 
-    if ($self->{cfg}{opml}) {
-      $opml->insert_outline(
+    if ($self->{opml}) {
+      $self->{opml}->insert_outline(
         title   => $f->{title},
         text    => $f->{title},
         xmlUrl  => $f->{url},
@@ -134,11 +134,9 @@ sub run {
     }
   }
 
-  if ($self->{cfg}{opml}) {
-    $opml->save($self->{cfg}{opml});
+  if ($self->{opml}) {
+    $self->{opml}->save($self->{cfg}{opml});
   }
-
-  my $entries = min(scalar @entries, $self->{cfg}{entries});
 
   my $day_zero = DateTime->from_epoch(epoch=>0);
 
@@ -152,6 +150,11 @@ sub run {
   @entries =
     grep { ($_->issued || $_->modified || $day_zero) < $week_in_future }
     @entries;
+
+  # Only need so many entries
+  if (@entries > $self->{cfg}{entries}) {
+    $#entries = $self->{cfg}{entries};
+  }
 
   # Preferences for HTML::Tidy
   my %tidy = (
@@ -236,8 +239,8 @@ sub run {
                 "$self->{cfg}{url}$self->{cfg}{feed}{file}";
   $f->self_link($self_url);
   $f->id($self_url);
-  foreach (1 .. $entries) {
-    my $entry = $entries[$_ - 1];
+
+  foreach my $entry (@entries) {
     if ($entry->content->type && $entry->content->type eq 'text/html') {
       my $scrubbed = $scrub->scrub($entry->content->body);
       my $clean = $tidy->clean(utf8::is_utf8($scrubbed) ?
@@ -271,7 +274,7 @@ sub run {
 
 =head1 TO DO
 
-See http://trac.mag-sol.com/perlanet/wiki
+See http://wiki.github.com/davorg/perlanet
 
 =head1 SUPPORT
 
@@ -291,7 +294,7 @@ to bug-Perlanet@rt.cpan.org.
 
 =item *
 
-L<perlanent>
+L<perlanet>
 
 =item *
 

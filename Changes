@@ -1,3 +1,51 @@
+2009-06-14  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Bump version number for release.
+
+	* commit 1612693525f1246ef14e6210043ac8934463978f
+
+2009-06-14  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet, lib/Perlanet.pm: Fixed links to wiki
+
+	* commit ad33e07663ed15f102627b74c0a4a54091da6228
+
+2009-06-14  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet, lib/Perlanet.pm: Typos in documentation
+
+	* commit 4b1bb732940225c547a6eb859a22f7c160d73c34
+
+2009-04-09  Dave Cross  <dave@dave.org.uk>
+
+	* t/01_basic.t, t/testrc: (Slightly) Better tests
+
+	* commit d0b0ef2d43e6377fa4047cd423c5ac85caff4b7b
+
+2009-04-09  Dave Cross  <dave@dave.org.uk>
+
+	* .gitignore, t/index.tt: Adding .gitignore.
+
+	* commit e9a65538bc7f0f8fb13e414e04dc5ca0bfd70abc
+
+2009-04-09  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Moved opml initialisation into constructor.
+
+	* commit c828da951eada302fd09c2c097471524da7d3111
+
+2009-04-09  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Cleaned up code for dealing with extra entries.
+
+	* commit 98b9edaefb3c18beb1c46fddde4d16c351555643
+
+2009-04-09  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Moved UA initialisation into constructor.
+
+	* commit ae5f92e0712f2b715546168038ca7e570f2e6eca
+
 2009-04-07  Dave Cross  <dave@dave.org.uk>
 
 	* lib/Perlanet.pm: Only convert feeds if necessary.
