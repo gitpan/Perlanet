@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.10
+version: 0.20
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -8,7 +8,10 @@ abstract: |-
   RSS and Atom).
 license: perl
 resources:
+  MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
+  homepage: http://code.mag-sol.com/Perlanet/
   license: http://dev.perl.org/licenses/
+  repository: git://github.com/davorg/perlanet.git
 requires:
   DateTime: 0
   DateTime::Duration: 0
@@ -27,8 +30,16 @@ build_requires:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.10
+    version: 0.20
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
+keywords:
+  - aggregate
+  - aggregator
+  - atom
+  - feed
+  - planet
+  - rss
+  - xml
