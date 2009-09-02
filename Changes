@@ -1,3 +1,15 @@
+2009-09-02 13:38  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Version 0.21.
+
+	* commit 5ff8f230f3327048b0cf2206fc3330ea127cd8d3
+
+2009-09-02 13:36  Dave Cross  <dave@dave.org.uk>
+
+	* MANIFEST: Added t/index.tt back into MANIFEST
+
+	* commit f1f288c6ff2db2cc0d2c11e36b55c4e3dbe26e90
+
 2009-08-10 21:51  Dave Cross  <dave@dave.org.uk>
 
 	* lib/Perlanet.pm, t/pod_coverage.t: Initial port to Moose.
