@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.21
+version: 0.30
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -13,14 +13,15 @@ resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/davorg/perlanet.git
 requires:
+  Compress::Zlib: 0
   DateTime: 0
   DateTime::Duration: 0
   Encode: 0
   HTML::Scrubber: 0
   HTML::Tidy: 0
-  LWP::UserAgent: 0
   List::Util: 0
   Template: 0
+  URI::Fetch: 0
   XML::Feed: 0.22
   XML::OPML::SimpleGen: 0
   YAML: 0
@@ -30,7 +31,7 @@ build_requires:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.21
+    version: 0.30
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

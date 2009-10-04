@@ -1,3 +1,34 @@
+2009-10-04 17:58  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Decided to bump to 0.30 as it's quite a
+	big change.
+
+	* commit bcc06913e072342320708a8865b5caa38b8448d2
+
+2009-10-04 17:58  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: fix typo
+
+	* commit 6818efcee4c270c03b74ef0c340620d69d24c083
+
+2009-10-04 17:36  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL, lib/Perlanet.pm: Use a number of kappa's fixes
+
+	* commit 47d835f4d122ba5ca9b80b35c06c3466825f199d
+
+2009-10-04 16:26  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Bump version in preparation for next release.
+
+	* commit 40003e204c1ee9b2342921f7c18e8e077f1ccbea
+
+2009-10-04 16:25  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Attempted XML::Aton Unicode fix.
+
+	* commit ba96e7169698b42e32aa89f8452f0cb43e7c9325
+
 2009-09-02 13:38  Dave Cross  <dave@dave.org.uk>
 
 	* lib/Perlanet.pm: Version 0.21.
@@ -33,4 +64,408 @@
 	* lib/Perlanet.pm: Force TT output to utf8.
 
 	* commit aae0c6e15133f8b475386acf1a192b2dca087501
+
+2009-06-15 16:57  Dave Cross  <dave@dave.org.uk>
+
+	* Merge branch 'master' of git@github.com:davorg/perlanet
+
+	Conflicts:
+
+		bin/perlanet
+
+	* commit bf815e8ef85ae79a466bf8cea17253353488f8d5
+
+2009-06-14 18:42  Dave Cross  <dave@dave.org.uk>
+
+	* .gitignore, README, README.xml: Renamed README.xml to README.
+
+	* commit 0c205caccfc1d3dad3e9a2612e73bb31317b164f
+
+2009-06-14 18:32  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Bump version number for release.
+
+	* commit 1612693525f1246ef14e6210043ac8934463978f
+
+2009-06-14 18:25  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet, lib/Perlanet.pm: Fixed links to wiki
+
+	* commit ad33e07663ed15f102627b74c0a4a54091da6228
+
+2009-06-14 18:16  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet, lib/Perlanet.pm: Typos in documentation
+
+	* commit 4b1bb732940225c547a6eb859a22f7c160d73c34
+
+2009-04-28 09:11  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet: Corrected link to trac
+
+	* commit e014a171c3997028e511b130260885e648ae42d9
+
+2009-04-09 12:46  Dave Cross  <dave@dave.org.uk>
+
+	* t/01_basic.t, t/testrc: (Slightly) Better tests
+
+	* commit d0b0ef2d43e6377fa4047cd423c5ac85caff4b7b
+
+2009-04-09 12:45  Dave Cross  <dave@dave.org.uk>
+
+	* .gitignore, t/index.tt: Adding .gitignore.
+
+	* commit e9a65538bc7f0f8fb13e414e04dc5ca0bfd70abc
+
+2009-04-09 12:12  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Moved opml initialisation into constructor.
+
+	* commit c828da951eada302fd09c2c097471524da7d3111
+
+2009-04-09 11:55  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Cleaned up code for dealing with extra entries.
+
+	* commit 98b9edaefb3c18beb1c46fddde4d16c351555643
+
+2009-04-09 11:49  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Moved UA initialisation into constructor.
+
+	* commit ae5f92e0712f2b715546168038ca7e570f2e6eca
+
+2009-04-07 10:49  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Only convert feeds if necessary.
+	Use LWP::UserAgent instead of LWP::Simple.
+
+	* commit 19e41141dadac261777cffb5b770a2612bbbeae2
+
+2009-04-07 10:48  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet: Documented new 'agent' configuration option.
+
+	* commit 12e5e40c4bfdcc517dfb9308a54b70342809da3e
+
+2009-04-07 10:47  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Removed unnecessary version string.  Replace
+	dependency on LWP::Simple with LWP::UserAgent.
+
+	* commit 11ac8b0e30f59be0c3c53898b1b6c9cb032d7bed
+
+2009-04-07 10:47  Dave Cross  <dave@dave.org.uk>
+
+	* t/testrc: Added agent string to test configuration
+
+	* commit 97450c31e8f758cb634317f428898d26d6cac688
+
+2008-10-23 10:37  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Requier version 0.22 of XML::Feed.
+
+	* commit 88ee6fd178ca2fb713c56687e6f75316d90c0ec6
+
+2008-10-23 10:22  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Bump version number for release
+
+	* commit 07888c397c2d2683612fc2f9e424d223a8b9fe63
+
+2008-10-23 10:18  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Fixes to make use of the code fixes in the
+	recent releases of XML::Feed. This, in turn, means that we are
+	now generating valid Atom feeds. Rah!
+
+	* commit f4642835a9676a3918db14863acc10a63906693d
+
+2008-09-29 07:03  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Bumped version number for release 0.07
+
+	* commit ae569f44d7e97763da6c1ce9ee148110a453916e
+
+2008-09-28 21:05  Alex Kapranoff  <kkapp@rambler.ru>
+
+	* lib/Perlanet.pm: 1. Stop htmltidy from ruining entities.
+	2. Add title to OPML outline elements for compatibility.
+
+	* commit e00157dcf49878b6b86806d470b4c498960ce3f3
+
+2008-09-21 10:20  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Bumped version for new release.
+
+	* commit 6874d41b2550ebb4ed103ab9d18d94deffedd284
+
+2008-09-21 10:20  Dave Cross  <dave@dave.org.uk>
+
+	* MANIFEST: Added README and Changes to MANIFEST
+
+	* commit 2eab55cbd0db2b8017a579b8661ac61c7df6db39
+
+2008-09-21 10:19  Dave Cross  <dave@dave.org.uk>
+
+	* README.xml: Added README.xml
+
+	* commit cb7fc9e27cec60424e6fc1e212e2ac94faa9d3e8
+
+2008-09-20 14:14  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL: Bumped version number.
+
+	* commit 46c1625d1d64407e37a0e9a473be55be92e3bdaa
+
+2008-09-20 14:06  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet: Added a lot of documentation
+
+	* commit 1c6bf647b7273ae35cbe462f5c48dcc77ed74c01
+
+2008-09-20 13:26  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Improved documentation.
+
+	* commit 8ebe296e395bde10ee09d957baba7e2460039052
+
+2008-09-19 16:11  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL, MANIFEST: Bump version number (by 2).  Added MANIFEST.
+
+	* commit b645f1dc5995c56baaede5db0dcfb58f38a51a13
+
+2008-09-19 16:08  Dave Cross  <dave@dave.org.uk>
+
+	* t/01_basic.t, t/testrc: Added a testrc and made t/01_basic.t
+	look in the right place for it.
+
+	* commit 3e2ceec436185644385294442a242a6f267689da
+
+2008-09-19 14:12  Dave Cross  <dave@dave.org.uk>
+
+	* index.tt, perlanetrc: Moved some files around
+
+	* commit 0653a9b2c3a8eac87d9633fa898d8d49b55f161c
+
+2008-09-19 14:10  Dave Cross  <dave@dave.org.uk>
+
+	* examples/index.tt, examples/perlanetrc: Added examples directory
+
+	* commit a0642c4497c12d424117252fb31da0bdadfd864e
+
+2008-09-19 14:08  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Added pod for the methods.
+
+	* commit 06527850f5f7cf11616222d6c4889727465c8564
+
+2008-09-19 14:08  Dave Cross  <dave@dave.org.uk>
+
+	* t/01_basic.t, t/pod.t, t/pod_coverage.t: Added (basic) tests
+
+	* commit b21561e910a949f86e262fd6deb77406c7ac37fc
+
+2008-09-19 14:03  Dave Cross  <dave@dave.org.uk>
+
+	* Build.PL, Makefile.PL: Switch from Makefile.PL to Build.PL
+
+	* commit 08f8779360860aafa6cad83b32c35ec86aa4b2a9
+
+2008-09-19 13:55  Dave Cross  <dave@dave.org.uk>
+
+	* bin/perlanet, lib/Perlanet.pm, perlanet: First cut at separating
+	most of the code out into a module
+
+	* commit 5091c8af4847fa74a6d39e00776c3fbad98a3d3a
+
+2008-09-19 13:31  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Applying patches suggested by Alex Kapranoff.
+	I think we're getting closer - but it's still not quite there.
+
+	* commit d6fa7bc63e033d3f5b5427bc574eeee2c1c40d4b
+
+2008-09-19 07:29  Dave Cross  <dave@dave.org.uk>
+
+	* Makefile.PL, index.tt, perlanet: Applied patch from Stephen
+	Steneker.  * Added Makefile.PL * Added Pod and tweaked perlanet *
+	Added explicit charset meta element to HTML template
+
+	* commit 9639c81a7ca282bae32cc6843589421879524bb9
+
+2008-09-19 07:22  Dave Cross  <dave@dave.org.uk>
+
+	* perlanetrc: Some changes to sample perlnetrc (now taken from
+	planet skeptic)
+
+	* commit 60d04b99dd4bd816116c4e440f94f3673012418d
+
+2008-09-17 19:26  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Remove unfinished 'decode' function.
+
+	* commit e29cc292124c58201bcbf719ac249fc301b2b990
+
+2008-09-17 19:24  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Remove decode call
+
+	* commit 11b280f5c9fe1195709dbbdd5656c5103d6f6fce
+
+2008-09-17 19:22  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Add "use open" line to specify encoding.
+
+	* commit ea361e087b24518671e9057d2d3343a02a836658
+
+2008-09-01 15:34  Dave Cross  <dave@dave.org.uk>
+
+	* perlanetrc: Changed author section of sample config file to
+	reflect latest version.
+
+	* commit c5285d951b8659022ed530d9fc9ec91655821aaa
+
+2008-09-01 15:21  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Huge bodge to work around XML::Feed's shortcomings
+	and set the author element correctly.
+
+	* commit a036a6387fad76aacce824cc003f866614e23bbc
+
+2008-09-01 14:05  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Decode the data as it comes into the program
+
+	* commit 35e9617a23525126c8e250eae20194c893891c2a
+
+2008-09-01 13:21  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Remove id attributes from spans as they are very
+	unlikely to remain unique
+
+	* commit f35e88867e84225c68065e569bede79abd72d0d9
+
+2008-08-29 16:14  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Add the ability to generate OPML files.
+
+	* commit 647f2caebd6d80b9318cff2d9185fa5343cda219
+
+2008-08-29 11:30  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Make previous fix into a global replacement
+
+	* commit 133bda17726adb4bdeb825372bb28d48a65a8638
+
+2008-08-29 11:26  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Nasty hack (which really don't like) to get round
+	blogspot problem.
+
+	* commit b96ff108cd7352400041cb12712323fdaed8b1f2
+
+2008-08-29 10:21  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Reverse order of HTML::Scrub and HTML::Tidy (scrub
+	before tidy now) as HTML::Scrub seems to undo some of HTML::Tidy's
+	good work. Possibly because the output I'm generating from
+	HTML::Tidy is XHTML, not HTML.
+
+	* commit 5b78addf9e656f24bbcabdab76b906e4999a2e57
+
+2008-07-23 13:07  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Pass $cfg to tt to enable increased cleverness
+	in templates.
+
+	* commit 26ff841e56a8dc132f9c578983d8bd56c6241882
+
+2008-07-23 13:03  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Tweaks to allow style attributes in HTML.
+
+	* commit a2eaaed949890dcf1e18492bcc1ae2480a3932ce
+
+2008-07-22 14:49  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Allow align tags on images.
+
+	* commit f1b380e701ff95b6454637fbf2cb71a2c52c3ef0
+
+2008-04-06 10:39  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Only show entries that are dated less than a week
+	in the future.
+
+	* commit 678b2a29fd9ba7d6cddfed966763608f92b386df
+
+2008-03-25 19:44  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Corrected check for content type
+
+	* commit 8e246d2325fb37aea47fd695a7925ef42a0cf2c4
+
+2008-03-25 19:43  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Process template in utf8 mode
+
+	* commit 261b42e7ab354fdbfc9f6e784e4a1d990103b924
+
+2008-03-24 21:14  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Added HTML::Scrubber support.  Use 'min' rather than
+	'max' number of entries (d'oh!)
+
+	* commit b1c1cfce70be620612ed1a45daf60eab7f9f1563
+
+2008-03-24 08:35  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Don't try to output more entries than you have.
+
+	* commit 2f6f1e114669ebe75b87cecfac4cb6ecfe6a01ff
+
+2008-03-22 18:04  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: HTML::Tidy support now works correctly.
+
+	* commit 66f8fb118badbd0fbc319d91952bd37c60566f18
+
+2008-03-22 16:12  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Added support for HTML::Tidy
+
+	* commit 719b609ee6350ae7423346e80c6bb46d4c7eb7b1
+
+2008-03-17 22:11  Dave Cross  <dave@dave.org.uk>
+
+	* index.tt: Better HTML output.
+
+	* commit adb5816e83c8962deb8b2a13a3d79976339c94ba
+
+2008-03-17 22:07  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Better error checking.
+
+	* commit 05cb13c4bb99a1864cc4bf7b12a3c979392fdfeb
+
+2008-03-11 21:40  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Ignore any feeds we can't retrieve
+
+	* commit c1f16cb0571f25b52901e53a56c110964bbb33de
+
+2008-03-10 21:18  Dave Cross  <dave@dave.org.uk>
+
+	* perlanet: Deal with feeds with crappy dates.	Actually output
+	the feed in the required format.
+
+	* commit a799eb7fe8aa61f01f86a9f1a7c25c6e3200a05a
+
+2008-03-09 22:01  Dave Cross  <dave@dave.org.uk>
+
+	* index.tt, perlanet, perlanetrc: Initial import
+
+	* commit 1fd4486136a626c491441610a2895518d05b0215
 
