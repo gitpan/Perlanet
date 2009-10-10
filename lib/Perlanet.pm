@@ -3,9 +3,11 @@ package Perlanet;
 use strict;
 use warnings;
 
+use Carp;
 use Moose;
 use Encode;
 use List::Util 'min';
+use POSIX qw(setlocale LC_ALL);
 use URI::Fetch;
 use XML::Feed;
 use Template;
@@ -19,8 +21,9 @@ use CHI;
 require XML::OPML::SimpleGen;
 
 use vars qw{$VERSION};
+
 BEGIN {
-  $VERSION = '0.31';
+  $VERSION = '0.32';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -74,7 +77,9 @@ sub BUILDARGS {
   @_ or @_ = ('./perlanetrc');
 
   if ( @_ == 1 && ! ref $_[0] ) {
-    return { cfg => LoadFile($_[0]) };
+    open my $cfg_file, '<:utf8', $_[0]
+      or croak "Cannot open file $_[0]: $!";
+    return { cfg => LoadFile($cfg_file) };
   } else {
     return $class->SUPER::BUILDARGS(@_);
   }
@@ -96,7 +101,9 @@ sub BUILD {
 
   my $opml;
   if ($self->cfg->{opml}) {
+    my $loc = setlocale(LC_ALL, 'C');
     $opml = XML::OPML::SimpleGen->new;
+    setlocale(LC_ALL, $loc);
     $opml->head(
       title => $self->cfg->{title},
     );
@@ -125,7 +132,7 @@ sub run {
     );
 
     unless ($response->is_success) {
-      warn "$f->{url}:\n" . $response->http_response->status_line;
+      warn "$f->{url}:\n" . $response->http_response->status_line . "\n";
       next;
     }
 
@@ -171,9 +178,9 @@ sub run {
   my $day_zero = DateTime->from_epoch(epoch=>0);
 
   @entries = sort {
-                    ($b->issued || $b->modified || $day_zero)
+                    ($b->modified || $b->issued || $day_zero)
                      <=>
-                    ($a->issued || $b->modified || $day_zero)
+                    ($a->modified || $b->issued || $day_zero)
                   } @entries;
 
   my $week_in_future = DateTime->now + DateTime::Duration->new(weeks => 1);
@@ -297,7 +304,8 @@ sub run {
     $f->add_entry($entry);
   }
 
-  open my $feedfile, '>', $self->cfg->{feed}{file} or die $!;
+  open my $feedfile, '>', $self->cfg->{feed}{file}
+    or croak 'Cannot open ' . $self->cfg->{feed}{file} . " for writing: $!";
   print $feedfile $f->as_xml;
   close $feedfile;
 
@@ -307,7 +315,7 @@ sub run {
                { feed => $f, cfg => $self->cfg },
                $self->cfg->{page}{file},
                { binmode => ':utf8'})
-    or die $tt->error;
+    or croak $tt->error;
 }
 
 =head1 TO DO
