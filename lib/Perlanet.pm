@@ -23,7 +23,7 @@ require XML::OPML::SimpleGen;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.32';
+  $VERSION = '0.33';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -133,8 +133,9 @@ sub run {
 
     unless ($response->is_success) {
       warn "$f->{url}:\n" . $response->http_response->status_line . "\n";
-      next;
     }
+
+    next if $response->is_error;
 
     my $data = $response->content;
 
@@ -150,8 +151,8 @@ sub run {
       next;
     }
 
-    if ($feed->format ne $self->{cfg}{feed}{format}) {
-      $feed = $feed->convert($self->{cfg}{feed}{format});
+    if ($feed->format ne $self->cfg->{feed}{format}) {
+      $feed = $feed->convert($self->cfg->{feed}{format});
     }
 
     unless (defined $f->{title}) {

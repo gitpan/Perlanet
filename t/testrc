@@ -1,20 +1,21 @@
 title: planet test
 description: Testing stuff
 url: http://theplanetarium.org/
+self_link: http://theplanetarium.org/
 agent: Testing Perlanet
 author:
   name: Dave Cross
   email: dave@dave.org.uk
 entries: 20
-opml: t/opml.xml
+opml: opml.xml
 page:
-  file: t/index.html
-  template: t/index.tt
+  file: index.html
+  template: index.tt
 feed:
-  file: t/atom.xml
-  format: Atom
+  file: rss.xml
+  format: RSS
 feeds:
-  - url: http://feeds.feedburner.com/JohnRedwoodsDiary
-    title: con: john redwood
-    web: http://www.johnredwoodsdiary.com/
+  - url: file:data/davblog.xml
+    title: davblog
+    web: http://blogs.dave.org.uk/
 

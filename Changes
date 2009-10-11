@@ -1,3 +1,31 @@
+2009-10-11 17:23  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Bumped to version 0.33.
+
+	* commit 21f8e65a6076b4835d780b944171a155caf612a3
+
+2009-10-11 17:23  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm: Fixed stupid error where feeds weren't getting
+	processed if they returned a 304 status.
+
+	* commit 5fa61ee7899318f2871bd84d5f3d2594461a3a18
+
+2009-10-11 16:57  Dave Cross  <dave@dave.org.uk>
+
+	* lib/Perlanet.pm, t/perlanetrc, t/testrc: Couple of typos
+	fixed. More test fixes.
+
+	* commit 06c414a694654830bd898881fd6e4518c0cf1d47
+
+2009-10-11 16:46  Dave Cross  <dave@dave.org.uk>
+
+	* t/01_basic.t, t/02_basic.t, t/03_noconf.t, t/04_moose_constr.t,
+	t/data/davblog.xml, t/perlanetrc, t/testrc: Work to improve
+	test coverage.
+
+	* commit 4de9c045d7e3a87b997e49edd1bf6f66ae12ac40
+
 2009-10-10 22:12  Dave Cross  <dave@dave.org.uk>
 
 	* lib/Perlanet.pm: Bump version to 0.32
