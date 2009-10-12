@@ -1,3 +1,15 @@
+2009-10-12 08:54  Dave Cross  <dave@dave-desktop.gumtree.com>
+
+	* lib/Perlanet.pm: Version 0.34.
+
+	* commit 899f146caf4918163b16e3686c4b428580dc4644
+
+2009-10-12 08:54  Dave Cross  <dave@dave-desktop.gumtree.com>
+
+	* lib/Perlanet.pm: Really make CHI optional.
+
+	* commit 9d866fd7f7cf345cf068746054c3560a542f253a
+
 2009-10-11 17:23  Dave Cross  <dave@dave.org.uk>
 
 	* lib/Perlanet.pm: Bumped to version 0.33.

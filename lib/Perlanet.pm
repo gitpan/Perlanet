@@ -16,14 +16,13 @@ use DateTime::Duration;
 use YAML 'LoadFile';
 use HTML::Tidy;
 use HTML::Scrubber;
-use CHI;
 
 require XML::OPML::SimpleGen;
 
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.33';
+  $VERSION = '0.34';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -91,6 +90,16 @@ sub BUILD {
   $self->ua(LWP::UserAgent->new( agent => $self->cfg->{agent} ||=
                                            "Perlanet/$VERSION" ));
   $self->ua->show_progress(1) if -t STDOUT;
+
+  if ($self->cfg->{cache_dir}) {
+    eval { require CHI; };
+
+    if ($@) {
+      warn "You need to install CHI to enable caching.\n";
+      warn "Caching disabled for this run.\n";
+      delete $self->cfg->{cache_dir};
+    }
+  }
 
   $self->cfg->{cache_dir}
     and $self->cache(CHI->new(
