@@ -17,12 +17,11 @@ use YAML 'LoadFile';
 use HTML::Tidy;
 use HTML::Scrubber;
 
-require XML::OPML::SimpleGen;
 
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.34';
+  $VERSION = '0.35';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -110,14 +109,23 @@ sub BUILD {
 
   my $opml;
   if ($self->cfg->{opml}) {
-    my $loc = setlocale(LC_ALL, 'C');
-    $opml = XML::OPML::SimpleGen->new;
-    setlocale(LC_ALL, $loc);
-    $opml->head(
-      title => $self->cfg->{title},
-    );
+    eval { require XML::OPML::SimpleGen; };
 
-    $self->opml($opml);
+    if ($@) {
+      warn 'You need to install XML::OPML::SimpleGen to enable OPML ' .
+           "Support.\n";
+      warn "OPML support disabled for this run.\n";
+      delete $self->cfg->{opml};
+    } else {
+      my $loc = setlocale(LC_ALL, 'C');
+      $opml = XML::OPML::SimpleGen->new;
+      setlocale(LC_ALL, $loc);
+      $opml->head(
+        title => $self->cfg->{title},
+      );
+
+      $self->opml($opml);
+    }
   }
 }
 
@@ -131,6 +139,8 @@ sub run {
   my $self = shift;
 
   my @entries;
+
+  my $day_zero = DateTime->from_epoch(epoch=>0);
 
   foreach my $f (@{$self->cfg->{feeds}}) {
 
@@ -168,8 +178,19 @@ sub run {
       $f->{title} = $feed->title;
     } 
 
+    my @feed_entries = sort {
+      ($b->modified || $b->issued || $day_zero)
+        <=>
+      ($a->modified || $a->issued || $day_zero)
+    } $feed->entries;
+
+    if ($self->cfg->{entries_per_feed} and
+      @feed_entries > $self->cfg->{entries_per_feed}) {
+      $#feed_entries = $self->cfg->{entries_per_feed} - 1;
+    }
+
     push @entries, map { $_->title($f->{title} . ': ' . $_->title); $_ }
-                         $feed->entries;
+                         @feed_entries;
 
     if ($self->opml) {
       $self->opml->insert_outline(
@@ -185,12 +206,10 @@ sub run {
     $self->opml->save($self->cfg->{opml});
   }
 
-  my $day_zero = DateTime->from_epoch(epoch=>0);
-
   @entries = sort {
                     ($b->modified || $b->issued || $day_zero)
                      <=>
-                    ($a->modified || $b->issued || $day_zero)
+                    ($a->modified || $a->issued || $day_zero)
                   } @entries;
 
   my $week_in_future = DateTime->now + DateTime::Duration->new(weeks => 1);

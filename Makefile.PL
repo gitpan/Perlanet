@@ -17,7 +17,6 @@ WriteMakefile
                            'Test::More' => 0,
                            'URI::Fetch' => 0,
                            'XML::Feed' => '0.22',
-                           'XML::OPML::SimpleGen' => 0,
                            'YAML' => 0
                          },
           'INSTALLDIRS' => 'site',

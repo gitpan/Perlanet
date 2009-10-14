@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.34
+version: 0.35
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -23,7 +23,6 @@ requires:
   Template: 0
   URI::Fetch: 0
   XML::Feed: 0.22
-  XML::OPML::SimpleGen: 0
   YAML: 0
   perl: 5.6.0
 build_requires:
@@ -31,10 +30,11 @@ build_requires:
 recommends:
   CHI: 0
   Compress::Zlib: 0
+  XML::OPML::SimpleGen: 0
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.34
+    version: 0.35
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
