@@ -21,7 +21,7 @@ use HTML::Scrubber;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.35';
+  $VERSION = '0.36';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -219,7 +219,7 @@ sub run {
 
   # Only need so many entries
   if (@entries > $self->cfg->{entries}) {
-    $#entries = $self->cfg->{entries};
+    $#entries = $self->cfg->{entries} - 1;
   }
 
   # Preferences for HTML::Tidy

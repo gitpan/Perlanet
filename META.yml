@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.35
+version: 0.36
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -34,7 +34,7 @@ recommends:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.35
+    version: 0.36
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
