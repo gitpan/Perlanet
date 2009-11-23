@@ -3,25 +3,25 @@ require 5.6.0;
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+          'INSTALLDIRS' => 'site',
           'NAME' => 'Perlanet',
+          'EXE_FILES' => [
+                           'bin/perlanet'
+                         ],
           'VERSION_FROM' => 'lib/Perlanet.pm',
           'PREREQ_PM' => {
                            'DateTime' => 0,
-                           'DateTime::Duration' => 0,
-                           'Encode' => 0,
+                           'YAML' => 0,
                            'HTML::Scrubber' => 0,
-                           'HTML::Tidy' => 0,
-                           'List::Util' => 0,
-                           'Moose' => 0,
-                           'Template' => 0,
-                           'Test::More' => 0,
-                           'URI::Fetch' => 0,
                            'XML::Feed' => '0.22',
-                           'YAML' => 0
-                         },
-          'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [
-                           'bin/perlanet'
-                         ]
+                           'URI::Fetch' => 0,
+                           'Template' => 0,
+                           'HTML::Tidy' => 0,
+                           'Encode' => 0,
+                           'Test::More' => 0,
+                           'List::Util' => 0,
+                           'DateTime::Duration' => 0,
+                           'Moose' => 0
+                         }
         )
 ;

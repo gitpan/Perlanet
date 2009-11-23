@@ -1,3 +1,9 @@
+2009-11-23  Dave Cross <dave@angel.mag-sol.com>
+
+  * lib/Perlanet.pm: Bump to version 0.37.
+
+  * lib/Perlanet.pm: Add support for HTTP proxy.
+
 2009-10-28  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Version 0.34.

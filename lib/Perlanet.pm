@@ -21,7 +21,7 @@ use HTML::Scrubber;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.36';
+  $VERSION = '0.37';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -89,6 +89,8 @@ sub BUILD {
   $self->ua(LWP::UserAgent->new( agent => $self->cfg->{agent} ||=
                                            "Perlanet/$VERSION" ));
   $self->ua->show_progress(1) if -t STDOUT;
+
+  $self->ua->env_proxy;
 
   if ($self->cfg->{cache_dir}) {
     eval { require CHI; };
