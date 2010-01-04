@@ -1,3 +1,53 @@
+2010-01-04  Dave Cross <dave@dave.org.uk>
+
+  * Build.PL, lib/Perlanet.pm: Pod fix
+
+  * lib/Perlanet.pm: Bump to version 0.40 (coz there are some quite big
+  changes).
+
+2009-12-24  Dave Cross <dave@dave-desktop.gumtree.com>
+
+  * lib/Perlanet.pm: Bit of code tidying (including taking some advice from
+  Perl::Critic).
+
+  * lib/Perlanet.pm: Merge documentation patches from Jess Robinson.
+
+2009-12-13  Oliver Charles <oliver.g.charles@googlemail.com>
+
+  * lib/Perlanet.pm, lib/Perlanet/Entry.pm, lib/Perlanet/Feed.pm: Pass 100% of
+  tests
+
+  * lib/Perlanet.pm, lib/Perlanet/Entry.pm, lib/Perlanet/Feed.pm: Go back to 2
+  spaces for identing, like Dave Cross
+
+  * lib/Perlanet.pm: Fixes to call to convert format
+
+  * lib/Perlanet.pm, lib/Perlanet/Feed.pm: Perlanet::Entry to represent posts,
+  with a back link to the feed
+
+  * lib/Perlanet.pm, lib/Perlanet/Entry.pm: Represent entries as
+  Perlanet::Entry objects
+
+  * lib/Perlanet.pm: Split cleaning out to work as a function
+
+  * lib/Perlanet.pm, lib/Perlanet/Feed.pm: * Introduced Perlanet::Feed object,
+  which abstracts the "feeds" configuration option * select_entries now takes a
+  list of feeds to fetch entries from
+
+  * lib/Perlanet.pm: Flexible cutoff date
+
+  * lib/Perlanet.pm: Refactor rendering and saving
+
+  * lib/Perlanet.pm: Formatting stuff
+
+  * lib/Perlanet.pm: Split out the cleaning stuff
+
+  * lib/Perlanet.pm: Done sorting/grepping entries
+
+  * lib/Perlanet.pm: Split out fetching a feed and selecting entries
+
+  * lib/Perlanet.pm: Refactor body of run loop to fetch feeds
+
 2009-11-23  Dave Cross <dave@angel.mag-sol.com>
 
   * lib/Perlanet.pm: Bump to version 0.37.

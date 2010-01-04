@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.37
+version: 0.40
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -10,7 +10,7 @@ license: perl
 resources:
   MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
   homepage: http://code.mag-sol.com/Perlanet/
-  license: ~
+  license: http://dev.perl.org/licenses/
   repository: git://github.com/davorg/perlanet.git
 requires:
   DateTime: 0
@@ -21,6 +21,7 @@ requires:
   List::Util: 0
   Moose: 0
   Template: 0
+  TryCatch: 0
   URI::Fetch: 0
   XML::Feed: 0.22
   YAML: 0
@@ -34,7 +35,7 @@ recommends:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.37
+    version: 0.40
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
