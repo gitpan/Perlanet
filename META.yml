@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.40
+version: 0.41
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -35,7 +35,11 @@ recommends:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.40
+    version: 0.41
+  Perlanet::Entry:
+    file: lib/Perlanet/Entry.pm
+  Perlanet::Feed:
+    file: lib/Perlanet/Feed.pm
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

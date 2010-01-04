@@ -1,5 +1,11 @@
 2010-01-04  Dave Cross <dave@dave.org.uk>
 
+  * MANIFEST: More stuff missing from MANIFEST
+
+  * MANIFEST: Add missing tests to MANIFEST
+
+  * MANIFEST, lib/Perlanet.pm: Fixed MANIFEST. Bumped version.
+
   * Build.PL, lib/Perlanet.pm: Pod fix
 
   * lib/Perlanet.pm: Bump to version 0.40 (coz there are some quite big
