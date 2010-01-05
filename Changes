@@ -1,5 +1,8 @@
 2010-01-05  Dave Cross <dave@dave.org.uk>
 
+  * lib/Perlanet.pm: Fix the (horribly broken) entries_per_feed code. Bump to
+  version 0.45.
+
   * lib/Perlanet.pm, lib/Perlanet/Entry.pm: Perlanet::Entry also delegates the
   link method to XML::Feed::Entry. Bump version to 0.44.
 
