@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.41
+version: 0.42
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -27,6 +27,7 @@ requires:
   YAML: 0
   perl: 5.6.0
 build_requires:
+  File::Path: 0
   Test::More: 0
 recommends:
   CHI: 0
@@ -35,7 +36,7 @@ recommends:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.41
+    version: 0.42
   Perlanet::Entry:
     file: lib/Perlanet/Entry.pm
   Perlanet::Feed:

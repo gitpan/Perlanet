@@ -9,6 +9,7 @@ WriteMakefile
                            'DateTime' => 0,
                            'DateTime::Duration' => 0,
                            'Encode' => 0,
+                           'File::Path' => 0,
                            'HTML::Scrubber' => 0,
                            'HTML::Tidy' => 0,
                            'List::Util' => 0,

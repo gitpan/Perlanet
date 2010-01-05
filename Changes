@@ -1,3 +1,8 @@
+2010-01-05  Dave Cross <dave@dave.org.uk>
+
+  * MANIFEST, lib/Perlanet.pm, t/05_cache.t, t/cacherc, t/perlanetrc: Found a
+  bug in caching support. Added a test and fixed bug. Bumped to version 0.42.
+
 2010-01-04  Dave Cross <dave@dave.org.uk>
 
   * MANIFEST: More stuff missing from MANIFEST
