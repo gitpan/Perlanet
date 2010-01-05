@@ -1,5 +1,16 @@
 2010-01-05  Dave Cross <dave@dave.org.uk>
 
+  * lib/Perlanet.pm, lib/Perlanet/Entry.pm: Perlanet::Entry also delegates the
+  link method to XML::Feed::Entry. Bump version to 0.44.
+
+  * lib/Perlanet.pm: Don't ignore the sorted list of entries - it's there for a
+  reason :-/ Bumped to version 0.43.
+
+  * t/05_cache.t: Fixed the previous fix.
+
+  * Build.PL, t/05_cache.t: Add File::Path to build requirements. Ensure cache
+  is deleted at start of caching test.
+
   * MANIFEST, lib/Perlanet.pm, t/05_cache.t, t/cacherc, t/perlanetrc: Found a
   bug in caching support. Added a test and fixed bug. Bumped to version 0.42.
 

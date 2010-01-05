@@ -1,6 +1,6 @@
 ---
 name: Perlanet
-version: 0.43
+version: 0.44
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: |-
@@ -36,7 +36,7 @@ recommends:
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.43
+    version: 0.44
   Perlanet::Entry:
     file: lib/Perlanet/Entry.pm
   Perlanet::Feed:
