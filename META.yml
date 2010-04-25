@@ -1,17 +1,38 @@
 ---
-name: Perlanet
-version: 0.45
+abstract: "A program for creating web pages that aggregate web feeds (both\nRSS and Atom)."
 author:
   - 'Dave Cross <dave@mag-sol.com>'
-abstract: |-
-  A program for creating web pages that aggregate web feeds (both
-  RSS and Atom).
+build_requires:
+  File::Path: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
+keywords:
+  - aggregate
+  - aggregator
+  - atom
+  - feed
+  - planet
+  - rss
+  - xml
 license: perl
-resources:
-  MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
-  homepage: http://code.mag-sol.com/Perlanet/
-  license: http://dev.perl.org/licenses/
-  repository: git://github.com/davorg/perlanet.git
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Perlanet
+provides:
+  Perlanet:
+    file: lib/Perlanet.pm
+    version: 0.46
+  Perlanet::Entry:
+    file: lib/Perlanet/Entry.pm
+  Perlanet::Feed:
+    file: lib/Perlanet/Feed.pm
+recommends:
+  CHI: 0
+  Compress::Zlib: 0
+  XML::OPML::SimpleGen: 0
 requires:
   DateTime: 0
   DateTime::Duration: 0
@@ -25,31 +46,10 @@ requires:
   URI::Fetch: 0
   XML::Feed: 0.22
   YAML: 0
-  perl: 5.6.0
-build_requires:
-  File::Path: 0
-  Test::More: 0
-recommends:
-  CHI: 0
-  Compress::Zlib: 0
-  XML::OPML::SimpleGen: 0
-provides:
-  Perlanet:
-    file: lib/Perlanet.pm
-    version: 0.45
-  Perlanet::Entry:
-    file: lib/Perlanet/Entry.pm
-  Perlanet::Feed:
-    file: lib/Perlanet/Feed.pm
-generated_by: Module::Build version 0.32
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
-keywords:
-  - aggregate
-  - aggregator
-  - atom
-  - feed
-  - planet
-  - rss
-  - xml
+  perl: v5.6.0
+resources:
+  MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
+  homepage: http://code.mag-sol.com/Perlanet/
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/davorg/perlanet.git
+version: 0.46

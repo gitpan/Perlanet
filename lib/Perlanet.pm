@@ -25,7 +25,7 @@ use constant THIRTY_DAYS => 30 * 24 * 60 * 60;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.45';
+  $VERSION = '0.46';
 }
 
 $XML::Atom::ForceUnicode = 1;
@@ -391,8 +391,7 @@ sub fetch_feeds {
 
     try {
       my $data = $response->content;
-      my $xml_feed = XML::Feed->parse(\$data)
-        or next;
+      my $xml_feed = XML::Feed->parse(\$data);
             
       if ($xml_feed->format ne $self->cfg->{feed}{format}) {
         $xml_feed = $xml_feed->convert($self->cfg->{feed}{format});
