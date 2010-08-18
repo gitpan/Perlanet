@@ -1,5 +1,5 @@
 ---
-abstract: "A program for creating web pages that aggregate web feeds (both\nRSS and Atom)."
+abstract: "A program for creating programs that aggregate web feeds (both\nRSS and Atom)."
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 build_requires:
@@ -24,14 +24,31 @@ name: Perlanet
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.46
+    version: 0.47
   Perlanet::Entry:
     file: lib/Perlanet/Entry.pm
   Perlanet::Feed:
     file: lib/Perlanet/Feed.pm
+  Perlanet::Simple:
+    file: lib/Perlanet/Simple.pm
+  Perlanet::Trait::Cache:
+    file: lib/Perlanet/Trait/Cache.pm
+  Perlanet::Trait::FeedFile:
+    file: lib/Perlanet/Trait/FeedFile.pm
+  Perlanet::Trait::OPML:
+    file: lib/Perlanet/Trait/OPML.pm
+  Perlanet::Trait::Scrubber:
+    file: lib/Perlanet/Trait/Scrubber.pm
+  Perlanet::Trait::TemplateToolkit:
+    file: lib/Perlanet/Trait/TemplateToolkit.pm
+  Perlanet::Trait::Tidy:
+    file: lib/Perlanet/Trait/Tidy.pm
+  Perlanet::Trait::YAMLConfig:
+    file: lib/Perlanet/Trait/YAMLConfig.pm
 recommends:
   CHI: 0
   Compress::Zlib: 0
+  MooseX::ConfigFromFile: 0
   XML::OPML::SimpleGen: 0
 requires:
   DateTime: 0
@@ -41,6 +58,7 @@ requires:
   HTML::Tidy: 0
   List::Util: 0
   Moose: 0
+  MooseX::Traits: 0
   Template: 0
   TryCatch: 0
   URI::Fetch: 0
@@ -52,4 +70,4 @@ resources:
   homepage: http://code.mag-sol.com/Perlanet/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/davorg/perlanet.git
-version: 0.46
+version: 0.47

@@ -14,6 +14,7 @@ WriteMakefile
                            'HTML::Tidy' => 0,
                            'List::Util' => 0,
                            'Moose' => 0,
+                           'MooseX::Traits' => 0,
                            'Template' => 0,
                            'Test::More' => 0,
                            'TryCatch' => 0,
