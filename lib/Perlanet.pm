@@ -18,7 +18,7 @@ use XML::Feed;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.47';
+  $VERSION = '0.50';
 }
 
 with 'MooseX::Traits';
@@ -51,9 +51,9 @@ has 'cutoff' => (
 );
 
 has 'max_entries' => (
-    isa => 'Int',
-    is  => 'rw',
-    predicate => 'has_max_entry_cap'
+  isa => 'Int',
+  is  => 'rw',
+  predicate => 'has_max_entry_cap'
 );
 
 has 'feeds' => (
@@ -62,10 +62,15 @@ has 'feeds' => (
   default => sub { [] }
 );
 
+has 'author' => (
+  isa     => 'HashRef',
+  is      => 'ro',
+);
+
 has $_ => (
-    isa => 'Str',
-    is  => 'ro',
-) for qw( self_link title description url author_name author_email agent );
+  isa => 'Str',
+  is  => 'ro',
+) for qw( self_link title description url agent );
 
 =head1 NAME
 
@@ -138,9 +143,9 @@ Attempt to fetch a web page and a returns a L<URI::Fetch::Response> object.
 sub fetch_page {
   my ($self, $url) = @_;
   return URI::Fetch->fetch(
-      $url,
-      UserAgent     => $self->ua,
-      ForceResponse => 1,
+    $url,
+    UserAgent     => $self->ua,
+    ForceResponse => 1,
   );
 }
 
@@ -148,8 +153,9 @@ sub fetch_page {
 
 Called internally by L</run> and passed the list of feeds in L</feeds>.
 
-Attempt to download all given feeds, as specified in the C<feeds> attribute. Returns a list of
-L<Perlanet::Feed> objects, with the actual feed data loaded.
+Attempt to download all given feeds, as specified in the C<feeds> attribute.
+Returns a list of L<Perlanet::Feed> objects, with the actual feed data
+loaded.
 
 NB: This method also modifies the contents of L</feeds>.
 
@@ -173,18 +179,19 @@ sub fetch_feeds {
 
       push @valid_feeds, $feed;
     }
-      catch ($e) {
-        carp 'Errors parsing ' . $feed->url;
-        carp $e if defined $e;
-      }
+    catch ($e) {
+      carp 'Errors parsing ' . $feed->url;
+      carp $e if defined $e;
     }
+  }
 
   return @valid_feeds;
 }
 
 =head2 select_entries
 
-Called internally by L</run> and passed the list of feeds from L</fetch_feeds>.
+Called internally by L</run> and passed the list of feeds from
+L</fetch_feeds>.
 
 Returns a combined list of L<Perlanet::Entry> objects from all given feeds.
 
@@ -218,10 +225,11 @@ sub select_entries {
 
 =head2 sort_entries
 
-Called internally by L</run> and passed the list of entries from L</select_entries>.
+Called internally by L</run> and passed the list of entries from
+L</select_entries>.
 
-Sort the given list of entries into created/modified order for aggregation, and filters them
- if necessary.
+Sort the given list of entries into created/modified order for aggregation,
+and filters them if necessary.
 
 Takes a list of L<Perlanet::Entry>s, and returns an ordered list.
 
@@ -266,8 +274,8 @@ sub build_feed {
   $f->title($self->title)             if defined $self->title;
   $f->url($self->url)                 if defined $self->url;
   $f->description($self->description) if defined $self->description;
-  $f->author($self->author_name)      if defined $self->author_name;
-  $f->email($self->author_email)      if defined $self->author_email;
+  $f->author($self->author->{name})   if defined $self->author->{name};
+  $f->email($self->author->{email})   if defined $self->author->{email};
   $f->self_link($self->url)           if defined $self->url;
   $f->id($self->url)                  if defined $self->url;
 
@@ -298,15 +306,14 @@ a list of cleaned entries.
 
 =cut
 
-sub clean_entries
-{
-    my ($self, @entries) = @_;
+sub clean_entries {
+  my ($self, @entries) = @_;
 
-    return map {
-        $_->content->body($self->clean_html($_->content->body));
-        $_->summary($self->clean_html($_->summary));
-        $_;
-    } @entries;
+  return map {
+    $_->content->body($self->clean_html($_->content->body));
+    $_->summary($self->clean_html($_->summary));
+    $_;
+  } @entries;
 }
 
 =head2 render
@@ -334,12 +341,13 @@ The main method which runs the perlanet process.
 sub run {
   my $self = shift;
 
-  $self->render(
-      $self->build_feed(
-          $self->clean_entries(
-              $self->sort_entries(
-                  $self->select_entries(
-                      $self->fetch_feeds(@{ $self->feeds }))))));
+  my @feeds    = $self->fetch_feeds(@{$self->feeds});
+  my @selected = $self->select_entries(@feeds);
+  my @sorted   = $self->sort_entries(@selected);
+  my @cleaned  = $self->clean_entries(@sorted);
+  my $feed     = $self->build_feed(@cleaned);
+
+  $self->render($feed);
 }
 
 =head1 TO DO
@@ -378,7 +386,7 @@ Dave Cross, <dave@mag-sol.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2008 by Magnum Solutions Ltd.
+Copyright (c) 2010 by Magnum Solutions Ltd.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.0 or,

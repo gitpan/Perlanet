@@ -1,4 +1,39 @@
+2010-08-21  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet/Trait/OPML.pm: Fixed names of the attributes.
+
+  * t/01_basic.t: Changed calls to reflect corrected config names.
+
+  * lib/Perlanet.pm: Fix typo.
+
+  * t/testrc: Fix config format.
+
+  * lib/Perlanet/Simple.pm: Reformatting.
+
+  * lib/Perlanet.pm: Bump to version 0.50.
+
+  * lib/Perlanet/Simple.pm, lib/Perlanet/Trait/Cache.pm,
+  lib/Perlanet/Trait/FeedFile.pm, lib/Perlanet/Trait/OPML.pm,
+  lib/Perlanet/Trait/Scrubber.pm, lib/Perlanet/Trait/TemplateToolkit.pm,
+  lib/Perlanet/Trait/Tidy.pm, lib/Perlanet/Trait/YAMLConfig.pm: Minor
+  reformatting.
+
+  * lib/Perlanet.pm: Reformatting.
+
+  * lib/Perlanet.pm: Refactored the calls in the main run method. Now they seem
+  to work.
+
+  * t/testrc: Changes to reflect the new format for author details.
+
+2010-08-19  Dave Cross <dave@mag-sol.com>
+
+  * bin/perlanet, lib/Perlanet.pm, lib/Perlanet/Trait/FeedFile.pm,
+  lib/Perlanet/Trait/TemplateToolkit.pm: Attempting to get perlanet
+  comment-line program working again.
+
 2010-08-18  Dave Cross <dave@dave.org.uk>
+
+  * MANIFEST: Added missing files.
 
   * bin/perlanet: Command line program  now uses Perlanet::Simple rather than
   Perlanet.
