@@ -24,7 +24,7 @@ name: Perlanet
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.50
+    version: 0.51
   Perlanet::Entry:
     file: lib/Perlanet/Entry.pm
   Perlanet::Feed:
@@ -70,4 +70,4 @@ resources:
   homepage: http://code.mag-sol.com/Perlanet/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/davorg/perlanet.git
-version: 0.50
+version: 0.51

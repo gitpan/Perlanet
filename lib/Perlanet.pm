@@ -18,7 +18,7 @@ use XML::Feed;
 use vars qw{$VERSION};
 
 BEGIN {
-  $VERSION = '0.50';
+  $VERSION = '0.51';
 }
 
 with 'MooseX::Traits';
@@ -50,10 +50,16 @@ has 'cutoff' => (
   }
 );
 
-has 'max_entries' => (
+has 'entries' => (
   isa => 'Int',
   is  => 'rw',
-  predicate => 'has_max_entry_cap'
+  default => 10,
+);
+
+has 'entries_per_feed' => (
+  isa => 'Int',
+  is  => 'rw',
+  default => 5,
 );
 
 has 'feeds' => (
@@ -204,6 +210,10 @@ sub select_entries {
   for my $feed (@feeds) {
     my @entries = $feed->_xml_feed->entries;
 
+    if ($self->entries_per_feed and @entries > $self->entries_per_feed) {
+      $#entries = $self->entries_per_feed - 1;
+    }
+
     push @feed_entries,
       map {
         $_->title($feed->title . ': ' . $_->title);
@@ -248,8 +258,8 @@ sub sort_entries {
   } @entries;
 
   # Only need so many entries
-  if ($self->has_max_entry_cap && @entries > $self->max_entries) {
-    $#entries = $self->max_entries - 1;
+  if ($self->entries && @entries > $self->entries) {
+    $#entries = $self->entries - 1;
   }
 
   return @entries;
@@ -301,19 +311,31 @@ sub clean_html {
 
 Clean all entries for the planet.
 
-Takes a list of entries, runs them through C<clean> (by default>, and returns
-a list of cleaned entries.
+Takes a list of entries, runs them through C<clean> and returns a list of
+cleaned entries.
 
 =cut
 
 sub clean_entries {
   my ($self, @entries) = @_;
 
-  return map {
-    $_->content->body($self->clean_html($_->content->body));
-    $_->summary($self->clean_html($_->summary));
-    $_;
-  } @entries;
+  my @clean_entries;
+
+  foreach (@entries) {
+    if (my $body = $_->content->body) {
+      my $cleaned = $self->clean_html($body);
+      $_->content->body($cleaned);
+    }
+
+    if (my $summary = $_->summary->body) {
+      my $cleaned = $self->clean_html($summary);
+      $_->summary->body($cleaned);
+    }
+
+    push @clean_entries, $_;
+  }
+
+  return @clean_entries;
 }
 
 =head2 render

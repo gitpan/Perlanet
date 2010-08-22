@@ -1,4 +1,32 @@
+2010-08-22  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Bumped to version 0.51. Fixing more problems.
+
+  * MANIFEST: Added more data files to MANIFEST
+
+  * MANIFEST, t/04_mps.t, t/data/stevebaker.xml, t/data/talkcarswell.xml,
+  t/mprc: Added some more tests.
+
+  * lib/Perlanet/Trait/Tidy.pm: Minor reformatting.
+
+  * lib/Perlanet.pm: Refactoring clean_entries method.
+
+  * lib/Perlanet/Trait/YAMLConfig.pm: Documentation typo.
+
+  * lib/Perlanet.pm: Fixed documentation.
+
+  * lib/Perlanet/Trait/OPML.pm: Fixed broken OPML handling.
+
+  * t/testrc: Added 'entries_per_feed' config option for tests.
+
+  * lib/Perlanet.pm: Correct typo
+
+  * MANIFEST, t/02_phases.t: Added tests for individual phases of the process.
+
 2010-08-21  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Reinstating the "entries_per_feed" support. Not sure when
+  it went missing. Renaming more config settings back to what they should be.
 
   * lib/Perlanet/Trait/OPML.pm: Fixed names of the attributes.
 

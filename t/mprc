@@ -7,8 +7,7 @@ entries_per_feed: 1
 author:
   name: Dave Cross
   email: dave@dave.org.uk
-max_entries: 20
-opml: opml.xml
+entries: 20
 page:
   file: index.html
   template: index.tt
@@ -16,7 +15,9 @@ feed:
   file: rss.xml
   format: Atom
 feeds:
-  - url: file:data/davblog.xml
-    title: davblog
-    web: http://blogs.dave.org.uk/
-
+  - title: 'con: Wycombe: Steve Baker'
+    url: file:data/stevebaker.xml
+    web: http://www.stevebaker.info/
+  - title: 'co: Clacton: Douglas Carswell'
+    url: file:data/talkcarswell.xml
+    web: http://www.talkcarswell.com/
