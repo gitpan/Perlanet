@@ -1,3 +1,15 @@
+2010-08-23  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Bump version number.
+
+  * lib/Perlanet/Trait/TemplateToolkit.pm: Pass the whole Perlanet object to
+  the template in a variable called 'cfg'.
+
+  * lib/Perlanet/Feed.pm: Renamed the 'website' attribute to 'web' (in line
+  with old config files).
+
+  * lib/Perlanet.pm: Improved reporting for HTTP errors.
+
 2010-08-22  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Bumped to version 0.51. Fixing more problems.
