@@ -1,3 +1,10 @@
+2010-11-04  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Bump to version 0.53 for release.
+
+  * t/pod_coverage.t: Added more subroutines to be skipped in the pod coverage
+  tests.
+
 2010-08-23  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Bump version number.
