@@ -1,3 +1,10 @@
+2011-02-22  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Bump version for release.
+
+  * lib/Perlanet/Trait/OPML.pm, t/01_basic.t: Fix support for OPML generation
+  (make it _really_ optional).
+
 2010-11-04  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Bump to version 0.53 for release.
