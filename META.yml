@@ -4,10 +4,12 @@ author:
   - 'Dave Cross <dave@mag-sol.com>'
 build_requires:
   File::Path: 0
+  MooseX::ConfigFromFile: 0
   Test::More: 0
 configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3603'
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.120351'
 keywords:
   - aggregate
   - aggregator
@@ -24,27 +26,37 @@ name: Perlanet
 provides:
   Perlanet:
     file: lib/Perlanet.pm
-    version: 0.54
+    version: 0.55
   Perlanet::Entry:
     file: lib/Perlanet/Entry.pm
+    version: 0
   Perlanet::Feed:
     file: lib/Perlanet/Feed.pm
+    version: 0
   Perlanet::Simple:
     file: lib/Perlanet/Simple.pm
+    version: 0
   Perlanet::Trait::Cache:
     file: lib/Perlanet/Trait/Cache.pm
+    version: 0
   Perlanet::Trait::FeedFile:
     file: lib/Perlanet/Trait/FeedFile.pm
+    version: 0
   Perlanet::Trait::OPML:
     file: lib/Perlanet/Trait/OPML.pm
+    version: 0
   Perlanet::Trait::Scrubber:
     file: lib/Perlanet/Trait/Scrubber.pm
+    version: 0
   Perlanet::Trait::TemplateToolkit:
     file: lib/Perlanet/Trait/TemplateToolkit.pm
+    version: 0
   Perlanet::Trait::Tidy:
     file: lib/Perlanet/Trait/Tidy.pm
+    version: 0
   Perlanet::Trait::YAMLConfig:
     file: lib/Perlanet/Trait/YAMLConfig.pm
+    version: 0
 recommends:
   CHI: 0
   Compress::Zlib: 0
@@ -66,8 +78,8 @@ requires:
   YAML: 0
   perl: v5.6.0
 resources:
-  MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
   homepage: http://code.mag-sol.com/Perlanet/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/davorg/perlanet.git
-version: 0.54
+  x_MailingList: http://lists.mag-sol.com/mailman/listinfo/perlanet
+version: 0.55

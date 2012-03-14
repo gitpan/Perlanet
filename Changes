@@ -1,3 +1,12 @@
+2012-03-14  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet.pm: Bump version number for release.
+
+  * Build.PL: Make MooseX::ConfigFromFile required for build (as it's used in
+  the tests)
+
+  * MANIFEST: Add META.json to MANIFEST.
+
 2011-02-22  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Bump version for release.
@@ -11,6 +20,14 @@
 
   * t/pod_coverage.t: Added more subroutines to be skipped in the pod coverage
   tests.
+
+2010-08-26  Dave Cross <dave@dave.org.uk>
+
+  * lib/Perlanet/Entry.pm, lib/Perlanet/Feed.pm, lib/Perlanet/Trait/Cache.pm,
+  lib/Perlanet/Trait/FeedFile.pm, lib/Perlanet/Trait/OPML.pm,
+  lib/Perlanet/Trait/Scrubber.pm, lib/Perlanet/Trait/TemplateToolkit.pm,
+  lib/Perlanet/Trait/Tidy.pm, lib/Perlanet/Trait/YAMLConfig.pm: Added 'use
+  strict' and 'use warnings' to all modules.
 
 2010-08-23  Dave Cross <dave@dave.org.uk>
 
