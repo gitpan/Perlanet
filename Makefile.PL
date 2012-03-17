@@ -3,30 +3,30 @@ require 5.006000;
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'NAME' => 'Perlanet',
-  'VERSION_FROM' => 'lib/Perlanet.pm',
-  'PREREQ_PM' => {
-                   'DateTime' => 0,
-                   'DateTime::Duration' => 0,
-                   'Encode' => 0,
-                   'File::Path' => 0,
-                   'HTML::Scrubber' => 0,
-                   'HTML::Tidy' => 0,
-                   'List::Util' => 0,
-                   'Moose' => 0,
-                   'MooseX::ConfigFromFile' => 0,
-                   'MooseX::Traits' => 0,
-                   'Template' => 0,
-                   'Test::More' => 0,
-                   'TryCatch' => 0,
-                   'URI::Fetch' => 0,
-                   'XML::Feed' => '0.22',
-                   'YAML' => 0
-                 },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [
-                   'bin/perlanet'
-                 ],
-  'PL_FILES' => {}
-)
+          'NAME' => 'Perlanet',
+          'VERSION_FROM' => 'lib/Perlanet.pm',
+          'PREREQ_PM' => {
+                           'DateTime' => 0,
+                           'DateTime::Duration' => 0,
+                           'Encode' => 0,
+                           'File::Path' => 0,
+                           'HTML::Scrubber' => 0,
+                           'HTML::Tidy' => 0,
+                           'List::Util' => 0,
+                           'Moose' => 0,
+                           'MooseX::ConfigFromFile' => 0,
+                           'MooseX::Traits' => 0,
+                           'Template' => 0,
+                           'Test::More' => 0,
+                           'Try::Tiny' => 0,
+                           'URI::Fetch' => 0,
+                           'XML::Feed' => '0.22',
+                           'YAML' => 0
+                         },
+          'INSTALLDIRS' => 'site',
+          'EXE_FILES' => [
+                           'bin/perlanet'
+                         ],
+          'PL_FILES' => {}
+        )
 ;

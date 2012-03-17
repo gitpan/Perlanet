@@ -4,7 +4,7 @@
       "Dave Cross <dave@mag-sol.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120351",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
    "keywords" : [
       "aggregate",
       "aggregator",
@@ -25,9 +25,9 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "File::Path" : "0",
-            "MooseX::ConfigFromFile" : "0",
-            "Test::More" : "0"
+            "File::Path" : 0,
+            "MooseX::ConfigFromFile" : 0,
+            "Test::More" : 0
          }
       },
       "configure" : {
@@ -37,25 +37,25 @@
       },
       "runtime" : {
          "recommends" : {
-            "CHI" : "0",
-            "Compress::Zlib" : "0",
-            "MooseX::ConfigFromFile" : "0",
-            "XML::OPML::SimpleGen" : "0"
+            "CHI" : 0,
+            "Compress::Zlib" : 0,
+            "MooseX::ConfigFromFile" : 0,
+            "XML::OPML::SimpleGen" : 0
          },
          "requires" : {
-            "DateTime" : "0",
-            "DateTime::Duration" : "0",
-            "Encode" : "0",
-            "HTML::Scrubber" : "0",
-            "HTML::Tidy" : "0",
-            "List::Util" : "0",
-            "Moose" : "0",
-            "MooseX::Traits" : "0",
-            "Template" : "0",
-            "TryCatch" : "0",
-            "URI::Fetch" : "0",
+            "DateTime" : 0,
+            "DateTime::Duration" : 0,
+            "Encode" : 0,
+            "HTML::Scrubber" : 0,
+            "HTML::Tidy" : 0,
+            "List::Util" : 0,
+            "Moose" : 0,
+            "MooseX::Traits" : 0,
+            "Template" : 0,
+            "Try::Tiny" : 0,
+            "URI::Fetch" : 0,
             "XML::Feed" : "0.22",
-            "YAML" : "0",
+            "YAML" : 0,
             "perl" : "v5.6.0"
          }
       }
@@ -63,7 +63,7 @@
    "provides" : {
       "Perlanet" : {
          "file" : "lib/Perlanet.pm",
-         "version" : "0.55"
+         "version" : "0.56"
       },
       "Perlanet::Entry" : {
          "file" : "lib/Perlanet/Entry.pm",
@@ -117,5 +117,5 @@
       },
       "x_MailingList" : "http://lists.mag-sol.com/mailman/listinfo/perlanet"
    },
-   "version" : "0.55"
+   "version" : "0.56"
 }

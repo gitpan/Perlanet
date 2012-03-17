@@ -1,3 +1,8 @@
+2012-03-17  Dave Cross <dave@dave.org.uk>
+
+  * Build.PL, lib/Perlanet.pm: Switched from using TryCatch to Try::Tiny.
+  Bumped version for release.
+
 2012-03-14  Dave Cross <dave@dave.org.uk>
 
   * lib/Perlanet.pm: Bump version number for release.
